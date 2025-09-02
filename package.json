@@ -1,0 +1,22 @@
+{
+  "name": "test-track-qa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathan-ateng/test-track-QA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathan-ateng/test-track-QA/issues"
+  },
+  "homepage": "https://github.com/nathan-ateng/test-track-QA#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0"
+  }
+}
