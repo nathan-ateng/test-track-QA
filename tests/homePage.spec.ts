@@ -14,7 +14,7 @@ test("Verify Live clock is visible and accurate", async ({ page }) => {
   const formattedMinutes = String(utcMinutes).padStart(2, "0");
 
   // Create a regular expression to match the full string and the dynamic time.
-  const expectedTimeRegex = new RegExp(`MISSION TIME: \\s*${utcHours}:${formattedMinutes}.*UTC`);
+  const expectedTimeRegex = new RegExp(`MISSION TIME: ${utcHours}:${formattedMinutes}.*UTC`);
 
   // Use the CSS selector from the page. This is a good, stable locator.
   const liveClockElement = page.locator(".text-foreground.text-sm");
@@ -35,4 +35,16 @@ test("Verify Pressence Header Texts ", async ({ page }) => {
   //Tagline Text
   const taglineText = page.locator("div[class='text-xs sm:text-sm text-accent tracking-[0.2em] mb-4 font-futura']");
   await expect(taglineText).toHaveText("AUTONOMOUS AGENT TRAINING FACILITY");
+
+  // Mission Objective Texts
+  const missionObjective = page.locator(".text-xs.text-primary.mb-1");
+  await expect(missionObjective).toHaveText("MISSION OBJECTIVE");
+  const missionObjectiveDesc = page.locator("div[class='grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto'] div:nth-child(1) div:nth-child(2)");
+  await expect(missionObjectiveDesc).toHaveText("Web automation testing protocols and validation procedures");
+
+  // System Status Texts
+  const systemStatus = page.locator("div[class='text-xs text-accent mb-1']");
+  await expect(systemStatus).toHaveText("SYSTEMS STATUS");
+  const systemStatusDesc = page.locator("//div[normalize-space()='All training modules operational and ready for deployment']");
+  await expect(systemStatusDesc).toHaveText("All training modules operational and ready for deployment");
 });
